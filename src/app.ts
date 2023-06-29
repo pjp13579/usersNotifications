@@ -17,7 +17,7 @@ app.all('/*', function (req, res, next) {
 	next();
 });
 
-app.listen(environment.PORT);
+app.listen();
 
 app.use(logger(environment.LOG_LEVEL));
 app.use(urlencoded({ extended: true }));
