@@ -1,0 +1,32 @@
+{
+  "name": "usersnotifications",
+  "version": "1.0.0",
+  "private": true,
+  "description": "demo project with real-time functionalities using Azure Web PubSub",
+  "scripts": {
+    "test": "tsoa spec-and-routes && jest --coverage -i",
+    "run-prod": "node dist/src/app.js",
+    "build": "tsoa spec-and-routes && tsc",
+    "start": "tsoa spec-and-routes && tsc && ts-node --esm ./src/app.ts",
+    "sonar": "npx jest --coverage"
+  },
+  "author": "pjp13579",
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "^4.17.17",
+    "@types/mongoose": "^5.11.97",
+    "@types/morgan": "^1.9.4",
+    "@types/node": "^20.3.2",
+    "@types/swagger-ui-express": "^4.1.3",
+    "bson": "^5.3.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-async-handler": "^1.2.0",
+    "mongoose": "^7.3.1",
+    "morgan": "^1.10.0",
+    "swagger-ui-express": "^4.6.3",
+    "ts-node": "^10.9.1",
+    "tsoa": "^5.1.1",
+    "typescript": "^5.1.6"
+  }
+}
