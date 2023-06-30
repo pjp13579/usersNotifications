@@ -1,0 +1,4 @@
+{
+	"appService.defaultWebAppToDeploy": "undefined/subscriptions/21898238-75e9-4016-b8c6-280834101fd6/resourceGroups/resources/providers/Microsoft.Web/sites/userNotifications23771",
+	"appService.deploySubpath": "."
+}

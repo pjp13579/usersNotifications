@@ -5,7 +5,7 @@
   "description": "demo project with real-time functionalities using Azure Web PubSub",
   "scripts": {
     "build": "tsoa spec-and-routes && tsc",
-    "start": "tsoa spec-and-routes && tsc && ts-node --esm ./src/app.ts"
+    "start": "node ./dist/src/app.js"
   },
   "author": "pjp13579",
   "license": "ISC",
