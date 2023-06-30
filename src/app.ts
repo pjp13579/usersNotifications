@@ -17,7 +17,7 @@ const app = express();
 // 	next();
 // });
 
-app.listen(80);
+app.listen(environment.PORT);
 
 app.use(logger(environment.LOG_LEVEL));
 app.use(urlencoded({ extended: true }));
