@@ -7,19 +7,19 @@ import environment from './environment';
 
 const app = express();
 
-// // setting necessary headers to allow cors on all endpoints
-// app.all('/*', function (req, res, next) {
-// 	// define header origin to allow requests from port 8081
-// 	res.header("Access-Control-Allow-Origin", "localhost:8081");
-// 	// define allowed headers in the request
-// 	res.header("Access-Control-Allow-Headers", 'Origin, X-Requested-With, Content-Type, Accept');
-// 	// continue
-// 	next();
-// });
+// setting necessary headers to allow cors on all endpoints
+app.all('/*', function (req, res, next) {
+	// define header origin to allow requests from port 8081
+	res.header("Access-Control-Allow-Origin", "localhost:8081");
+	// define allowed headers in the request
+	res.header("Access-Control-Allow-Headers", 'Origin, X-Requested-With, Content-Type, Accept');
+	// continue
+	next();
+});
 
-app.listen(environment.PORT);
+app.listen(80);
 
-app.use(logger(environment.LOG_LEVEL));
+app.use(logger("combined"));
 app.use(urlencoded({ extended: true }));
 app.use(express.json());
 RegisterRoutes(app);
