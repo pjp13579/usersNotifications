@@ -4,7 +4,6 @@
   "private": true,
   "description": "demo project with real-time functionalities using Azure Web PubSub",
   "scripts": {
-    "run-prod": "node dist/src/app.js",
     "build": "tsoa spec-and-routes && tsc",
     "start": "tsoa spec-and-routes && tsc && ts-node --esm ./src/app.ts"
   },
