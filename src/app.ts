@@ -4,8 +4,10 @@ import { RegisterRoutes } from '../dist/routes';
 import swaggerUI from 'swagger-ui-express';
 import logger from 'morgan';
 import environment from './environment';
+import initializeMongoClient from './database/client';
 
 const app = express();
+initializeMongoClient();
 
 // setting necessary headers to allow cors on all endpoints
 app.all('/*', function (req, res, next) {

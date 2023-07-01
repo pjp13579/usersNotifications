@@ -4,18 +4,47 @@ import {
 	Route,
 	Tags
 } from "tsoa";
+import { User } from "../models/user.model";
+import UserService from "../services/user.service";
 
 @Tags('User')
 @Route('user')
 export class NotificationsController extends Controller {
 
+	private userService: UserService;
+
+	// passing service in constructor to stub methods for unit tests
+	constructor(service?: UserService) {
+		super();
+		if (service) {
+			this.userService = service!;
+		}
+		else {
+			this.userService = new UserService();
+		}
+	}
 
 	/**
-	 * Get random number
+	 * Get all users in record
+	 * 
 	 */
-	@Get('/randomnumber')
-	public async getRandomIdNumber(): Promise<number> {
+	@Get('/getallusers')
+	public async getAllUsers(): Promise<User[]> {
 
-		return Math.floor(Math.random() * 24);
+		return this.userService.getAllUsers();
+
+	};
+
+	/**
+	 * Get a user by id
+	 * 
+	 */
+	@Get('/getuserbyid/{id}')
+	public async getUserById(
+		id: string
+	): Promise<User | null> {
+
+		return this.userService.getUserById(id);
+
 	};
 }
