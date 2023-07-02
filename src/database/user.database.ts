@@ -3,14 +3,17 @@ import userModel, { User } from "../models/user.model";
 
 export default class UserDatabase {
 
-	public async getAllUsers(): Promise<User[]>{
+	public async getAllUsers(): Promise<User[]> {
 		let stuff = userModel.find();
-		
-		console.log(stuff);
+
 		return stuff;
 	}
 
-	public async getUserById(objectId: mongoose.Types.ObjectId) : Promise<User | null>{
+	public async getUserById(objectId: mongoose.Types.ObjectId): Promise<User | null> {
 		return userModel.findById(objectId);
+	}
+
+	public postUsers(users: User[]): void {
+		userModel.insertMany(users);
 	}
 };

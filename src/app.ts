@@ -19,9 +19,9 @@ app.all('/*', function (req, res, next) {
 	next();
 });
 
-app.listen(80);
+app.listen(environment.PORT);
 
-app.use(logger("combined"));
+app.use(logger(environment.LOG_LEVEL));
 app.use(urlencoded({ extended: true }));
 app.use(express.json());
 RegisterRoutes(app);
