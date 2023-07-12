@@ -7,14 +7,13 @@ import {
 	SuccessResponse,
 	Tags
 } from "tsoa";
-import { User } from "../models/user.model";
-import UserService from "../services/user.service";
 import { createUser } from "../interfaces/createUser.interface";
 import { viewUser } from "../interfaces/viewUser.interface";
+import UserService from "../services/user.service";
 
 @Tags('User')
 @Route('user')
-export class NotificationsController extends Controller {
+export class UserController extends Controller {
 
 	private userService: UserService;
 
