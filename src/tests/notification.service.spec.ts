@@ -1,5 +1,3 @@
-import { WebPubSubServiceClient } from "@azure/web-pubsub";
-import environment from "../environment";
 import NotificationService from "../services/notification.service";
 import PubSubService from "../services/pubsub.service";
 
@@ -9,8 +7,7 @@ fdescribe('test the notifications service class', () => {
 		it('should return the token', async () => {
 			let token = { token: 'wss:something' };
 			
-			let pubSubServiceClient = new WebPubSubServiceClient("environment.CONNECTIONSTRING", "environment.PUBSUBHUB");
-			let pubSubService = new PubSubService(pubSubServiceClient);
+			let pubSubService = new PubSubService();
 
 			jest.spyOn(pubSubService, 'getClientAccessToken').mockImplementation(() => Promise.resolve(token));
 
