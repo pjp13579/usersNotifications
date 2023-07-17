@@ -1,22 +1,15 @@
-import NotificationDatabase from "../database/notification.database";
+import { PubSubToken } from "../interfaces/pubSubtoken.interface";
 import PubSubService from "./pubsub.service";
 
 
 export default class NotificationService {
 	//! if client connection is lost momentarily, the socket will not automatically reconnect
 
-	private notificationDatabase: NotificationDatabase;
 	private pubSubService: PubSubService;
 
 	// passing database in constructor to stub methods for unit tests
 	// passing PubSub Client in the constructor to stub methods for unit tests
-	constructor(database?: NotificationDatabase, pubsub?: PubSubService) {
-		if (database) {
-			this.notificationDatabase = database!;
-		}
-		else {
-			this.notificationDatabase = new NotificationDatabase();
-		}
+	constructor(pubsub?: PubSubService) {
 
 		if (pubsub) {
 			this.pubSubService = pubsub;
@@ -27,13 +20,10 @@ export default class NotificationService {
 	}
 
 
-	public async getClientAccessToken(id: string, group: string[]): Promise<any> {
+	public async getClientAccessToken(id: string): Promise<PubSubToken> {
 
 		// assign the client a userId
-		let token = await this.pubSubService.getClientAccessToken(id, group);
-
-		// assign the client a userId and join group GroupA when it connects using the access token
-		//token = await serviceClient.getClientAccessToken({ userId: "id", groups: [ "GroupA" ] });	
+		let token = await this.pubSubService.getClientAccessToken(id);
 
 		return { token: token.token };
 	}

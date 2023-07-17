@@ -15,7 +15,7 @@ export default class PubSubService {
 		}
 	}
 
-	public async getClientAccessToken(id: string, groupNames: string[]): Promise<any> {
+	public async getClientAccessToken(id: string): Promise<any> {
 
 		let tokenOptions: any = {};
 
@@ -23,15 +23,9 @@ export default class PubSubService {
 			tokenOptions.userId = id;
 		}
 
-		if (groupNames) {
-			tokenOptions.groups = groupNames;
-		}
-
 		// assign the client a userId
 		let token = await this.pubsubServiceClient.getClientAccessToken(tokenOptions);
-		// assign the client a userId and join group GroupA when it connects using the access token
-		//token = await serviceClient.getClientAccessToken({ userId: "id", groups: [ "GroupA" ] });	
-
+		
 		return { token: token.url };
 	}
 

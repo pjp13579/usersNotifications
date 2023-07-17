@@ -10,6 +10,8 @@ import { AccessTokenCreationParams } from "../interfaces/accessToken-creation-pa
 import { AllUsersGroupCreationParams } from "../interfaces/allUsers-notifications-creation-params.interface";
 import { NotificationUserCreationParams } from "../interfaces/user-notification-creation-params.interface";
 import NotificationService from "../services/notification.service";
+import { PubSubToken } from "../interfaces/pubSubtoken.interface";
+import { StatusError } from "../interfaces/error.interface";
 
 @Tags('Notification')
 @Route('notification')
@@ -36,11 +38,15 @@ export class NotificationsController extends Controller {
 	 * Using post method because tsoa Get() does not support body content 
 	 */
 	@Post('/accesstoken')
+	@SuccessResponse("200", "Ok")
 	public async getClientAccessToken(
 		@Body() body: AccessTokenCreationParams
-	): Promise<any> {
+	): Promise<PubSubToken> {
 
-		return this.notificationService.getClientAccessToken(body.userId, body.groupName);
+		if(body.userId){
+			return this.notificationService.getClientAccessToken(body.userId);
+		}
+		throw new StatusError(400, 'UserId not valid');
 	}
 
 	/**
@@ -48,7 +54,7 @@ export class NotificationsController extends Controller {
 	 * 
 	 */
 	@Post("/user")
-	@SuccessResponse("200", "Ok")
+	@SuccessResponse("201", "Created")
 	public async postNotificationToUser(
 		@Body() body: NotificationUserCreationParams): Promise<null> {
 		this.setStatus(201);
@@ -62,7 +68,7 @@ export class NotificationsController extends Controller {
 	 * 
 	 */
 	@Post("/all")
-	@SuccessResponse("200", "Ok")
+	@SuccessResponse("201", "Created")
 	public async postNotificationToEveryUsers(
 		@Body() body: AllUsersGroupCreationParams): Promise<null> {
 		this.setStatus(201);

@@ -1,0 +1,11 @@
+import type { Config } from '@jest/types';
+// Sync object
+const config: Config.InitialOptions = {
+	coverageProvider: 'babel',
+	verbose: true,
+	collectCoverage: true,
+	transform: {
+		'^.+\\.tsx?$': 'ts-jest',
+	}
+};
+export default config;

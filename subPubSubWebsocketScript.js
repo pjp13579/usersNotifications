@@ -1,7 +1,6 @@
 
 // assign "clientMicroService" the web-socket access token 
-let clientMicroService =
-"";
+let clientMicroService = "";
 
 const WEBSOCKET_SUBPROTOCOL = "json.webpubsub.azure.v1";
 
