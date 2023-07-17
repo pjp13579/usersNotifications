@@ -9,7 +9,7 @@ fdescribe('test the notifications service class', () => {
 		it('should return the token', async () => {
 			let token = { token: 'wss:something' };
 			
-			let pubSubServiceClient = new WebPubSubServiceClient(environment.CONNECTIONSTRING, environment.PUBSUBHUB);
+			let pubSubServiceClient = new WebPubSubServiceClient("environment.CONNECTIONSTRING", "environment.PUBSUBHUB");
 			let pubSubService = new PubSubService(pubSubServiceClient);
 
 			jest.spyOn(pubSubService, 'getClientAccessToken').mockImplementation(() => Promise.resolve(token));
