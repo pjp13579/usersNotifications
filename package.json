@@ -6,8 +6,7 @@
   "scripts": {
     "build": "tsoa spec-and-routes && tsc",
     "start": "node ./dist/src/app.js",
-    "sonar": "npx jest --coverage",
-    "test": "tsoa spec-and-routes && tsc && npx jest --coverage"
+    "test": "tsoa spec-and-routes && jest --coverage -i"
   },
   "author": "pjp13579",
   "license": "ISC",
