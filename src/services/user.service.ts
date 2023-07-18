@@ -45,4 +45,8 @@ export default class UserService {
 
 		this.userDatabase.postUsers(users);
 	}
+
+	public async deleteUsers(usersIds: string[]): Promise<mongoose.mongo.DeleteResult> {
+		return this.userDatabase.deleteUsers(usersIds);
+	}
 }

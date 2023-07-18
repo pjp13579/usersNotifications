@@ -16,4 +16,8 @@ export default class UserDatabase {
 	public postUsers(users: User[]): void {
 		userModel.insertMany(users);
 	}
+
+	public deleteUsers(usersIds: string[]): Promise<mongoose.mongo.DeleteResult> {
+		return userModel.deleteMany({ _id: { $in: usersIds } }).exec();
+	}
 };

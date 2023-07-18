@@ -1,6 +1,7 @@
 import {
 	Body,
 	Controller,
+	Delete,
 	Get,
 	Post,
 	Route,
@@ -10,6 +11,7 @@ import {
 import { createUser } from "../interfaces/createUser.interface";
 import { viewUser } from "../interfaces/viewUser.interface";
 import UserService from "../services/user.service";
+import mongoose from "mongoose";
 
 @Tags('User')
 @Route('user')
@@ -60,11 +62,25 @@ export class UserController extends Controller {
 	@SuccessResponse("201", "Created")
 	public async postUsers(
 		@Body() body: createUser[]
-	): Promise<null>{
-		
+	): Promise<null> {
+
 		this.userService.postUsers(body);
 
 		return null;
+	}
+
+	/**
+ 	 * Post users in database
+ 	 * 
+ 	 * Accepts an array of users
+ 	 */
+	@Delete('/')
+	@SuccessResponse("200", "Ok")
+	public async deleteUsers(
+		@Body() body: string[]
+	): Promise<mongoose.mongo.DeleteResult> {
+
+		return this.userService.deleteUsers(body);
 	}
 
 }
