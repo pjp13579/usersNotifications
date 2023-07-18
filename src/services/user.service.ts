@@ -5,7 +5,6 @@ import { CreateUser } from "../interfaces/createUser.interface";
 import { createUserToUser } from "../converters/createUserToUser.converter";
 import { viewUser } from "../interfaces/viewUser.interface";
 import { userToViewUser, usersToViewUsers } from "../converters/userToViewUser.converter";
-import { UpdateUser } from "../interfaces/updateUser-interface";
 
 
 export default class UserService {
