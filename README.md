@@ -24,5 +24,10 @@ There is an instance of this application deployed in Azure. These are the web-ap
 &emsp;-<a href="https://usernotification23771.azurewebsites.net/notification/all">https://usernotification23771.azurewebsites.net/notification/all</a> (Post)<br />
 &emsp;-<a href="https://usernotification23771.azurewebsites.net/user/getallusers">https://usernotification23771.azurewebsites.net/user/getallusers</a> (Get)<br />
 &emsp;-<a href="https://usernotification23771.azurewebsites.net/user/getuserbyid/{id}">https://usernotification23771.azurewebsites.net/user/getuserbyid/{id}</a> (Get)<br />
-&emsp;-<a href="https://usernotification23771.azurewebsites.net/user">https://usernotification23771.azurewebsites.net/user</a> (Post)
+&emsp;-<a href="https://usernotification23771.azurewebsites.net/user">https://usernotification23771.azurewebsites.net/user</a> (Post)<p></p>
+	<p></p>
+
+UI de documentação:
+&emsp;-<a href="https://usernotification23771.azurewebsites.net/docs">https://usernotification23771.azurewebsites.net/docs</a>
+
 
