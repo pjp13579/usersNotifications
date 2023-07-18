@@ -27,7 +27,7 @@ There is an instance of this application deployed in Azure. These are the web-ap
 &emsp;-<a href="https://usernotification23771.azurewebsites.net/user">https://usernotification23771.azurewebsites.net/user</a> (Post)<p></p>
 	<p></p>
 
-UI de documentação: 
+Swagger-UI: 
  <a href="https://usernotification23771.azurewebsites.net/docs">https://usernotification23771.azurewebsites.net/docs</a>
 
 
