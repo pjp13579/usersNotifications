@@ -10,7 +10,7 @@ export default class NotificationService {
 	// passing database in constructor to stub methods for unit tests
 	// passing PubSub Client in the constructor to stub methods for unit tests
 	constructor(pubsub?: PubSubService) {
-
+		
 		if (pubsub) {
 			this.pubSubService = pubsub;
 		}
@@ -18,7 +18,6 @@ export default class NotificationService {
 			this.pubSubService = new PubSubService();
 		}
 	}
-
 
 	public async getClientAccessToken(id: string): Promise<PubSubToken> {
 

@@ -1,5 +1,6 @@
 import * as dotenv from 'dotenv';
 
+// loads .env file contents into process.env
 dotenv.config();
 
 export interface Environment {

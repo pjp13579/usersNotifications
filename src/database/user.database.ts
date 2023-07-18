@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { UpdateWriteOpResult } from "mongoose";
 import userModel, { User } from "../models/user.model";
 
 export default class UserDatabase {
@@ -19,5 +19,9 @@ export default class UserDatabase {
 
 	public deleteUsers(usersIds: string[]): Promise<mongoose.mongo.DeleteResult> {
 		return userModel.deleteMany({ _id: { $in: usersIds } }).exec();
+	}
+
+	public updateUser(user: User): Promise<UpdateWriteOpResult>{
+		return userModel.updateOne({_id: user._id}, user).exec();
 	}
 };

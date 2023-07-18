@@ -1,10 +1,10 @@
 import mongoose from "mongoose";
-import { createUser } from "../interfaces/createUser.interface";
+import { CreateUser } from "../interfaces/createUser.interface";
 import { User } from "../models/user.model";
 
 const crypto = require('crypto');
 
-export function createUserToUser(createUsers: createUser[]): User[] {
+export function createUserToUser(createUsers: CreateUser[]): User[] {
 
 	let users: User[] = JSON.parse(JSON.stringify(createUsers));
 

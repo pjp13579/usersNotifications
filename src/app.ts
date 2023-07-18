@@ -9,6 +9,7 @@ import environment from './environment';
 import { StatusError } from './interfaces/error.interface';
 
 const app = express();
+
 initializeMongoClient();
 
 // // setting necessary headers to allow cors on all endpoints
@@ -27,7 +28,7 @@ app.use(logger(environment.LOG_LEVEL));
 app.use(urlencoded({ extended: true }));
 app.use(express.json());
 
-// 
+// Associate tsoa routes to this expressJs instance
 RegisterRoutes(app);
 
 // error handling middleware

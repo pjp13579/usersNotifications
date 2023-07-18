@@ -3,15 +3,17 @@ import {
 	Controller,
 	Delete,
 	Get,
+	Patch,
 	Post,
+	Put,
 	Route,
 	SuccessResponse,
 	Tags
 } from "tsoa";
-import { createUser } from "../interfaces/createUser.interface";
+import { CreateUser } from "../interfaces/createUser.interface";
 import { viewUser } from "../interfaces/viewUser.interface";
 import UserService from "../services/user.service";
-import mongoose from "mongoose";
+import mongoose, { UpdateWriteOpResult } from "mongoose";
 
 @Tags('User')
 @Route('user')
@@ -61,7 +63,7 @@ export class UserController extends Controller {
 	@Post('/')
 	@SuccessResponse("201", "Created")
 	public async postUsers(
-		@Body() body: createUser[]
+		@Body() body: CreateUser[]
 	): Promise<null> {
 
 		this.userService.postUsers(body);
@@ -70,10 +72,10 @@ export class UserController extends Controller {
 	}
 
 	/**
- 	 * Post users in database
- 	 * 
- 	 * Accepts an array of users
- 	 */
+	   * Post users in database
+	   * 
+	   * Accepts an array of users
+	   */
 	@Delete('/')
 	@SuccessResponse("200", "Ok")
 	public async deleteUsers(

@@ -1,5 +1,5 @@
 
-export interface createUser {
+export interface CreateUser {
 	uid: string | null;
 	password: string;
 	first_name: string | null;

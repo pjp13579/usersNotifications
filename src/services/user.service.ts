@@ -1,10 +1,11 @@
-import mongoose from "mongoose";
+import mongoose, { UpdateWriteOpResult } from "mongoose";
 import UserDatabase from "../database/user.database";
 import { User } from "../models/user.model";
-import { createUser } from "../interfaces/createUser.interface";
+import { CreateUser } from "../interfaces/createUser.interface";
 import { createUserToUser } from "../converters/createUserToUser.converter";
 import { viewUser } from "../interfaces/viewUser.interface";
 import { userToViewUser, usersToViewUsers } from "../converters/userToViewUser.converter";
+import { UpdateUser } from "../interfaces/updateUser-interface";
 
 
 export default class UserService {
@@ -39,7 +40,7 @@ export default class UserService {
 		return null;
 	}
 
-	public async postUsers(body: createUser[]): Promise<void> {
+	public async postUsers(body: CreateUser[]): Promise<void> {
 
 		let users = createUserToUser(body);
 
@@ -49,4 +50,5 @@ export default class UserService {
 	public async deleteUsers(usersIds: string[]): Promise<mongoose.mongo.DeleteResult> {
 		return this.userDatabase.deleteUsers(usersIds);
 	}
+
 }
