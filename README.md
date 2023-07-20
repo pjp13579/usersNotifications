@@ -8,7 +8,7 @@ Environment variables:<br />
 &emsp;DATABASE_URI: mongo database connection string<br />
 &emsp;CONNECTIONSTRING: Azure Web PubSub instance connection string<br />
 &emsp;PUBSUBHUB: Azure Web PubSub hub to receive real-time notifications<p></p>
-	<p></p>
+<p></p>
 
 To run the application: <br />
 &emsp;-open a terminal window <br />
@@ -16,7 +16,7 @@ To run the application: <br />
 &emsp;-(optional) execute the command "npm run coverage" to generate tsoa routes and run the unit tests<br />
 &emsp;-execute the command "npm run build" to generate tsoa routes <br />
 &emsp;-execute the command "npm run start" to start the application <p></p>
-	<p></p>
+<p></p>
 
 There is an instance of this application deployed in Azure. These are the web-api endpoints:<br />
 &emsp;-<a href="https://usernotification23771.azurewebsites.net/notification/accesstoken">https://usernotification23771.azurewebsites.net/notification/accesstoken</a> (Post)<br />
@@ -26,8 +26,11 @@ There is an instance of this application deployed in Azure. These are the web-ap
 &emsp;-<a href="https://usernotification23771.azurewebsites.net/user/getuserbyid/{id}">https://usernotification23771.azurewebsites.net/user/getuserbyid/{id}</a> (Get)<br />
 &emsp;-<a href="https://usernotification23771.azurewebsites.net/user">https://usernotification23771.azurewebsites.net/user</a> (Post)<br />
 &emsp;-<a href="https://usernotification23771.azurewebsites.net/user">https://usernotification23771.azurewebsites.net/user</a> (Delete)<p></p>
+<p></p>
+
+Swagger-UI:
+<a href="https://usernotification23771.azurewebsites.net/docs">https://usernotification23771.azurewebsites.net/docs</a><p></p>
 	<p></p>
 
-Swagger-UI: 
- <a href="https://usernotification23771.azurewebsites.net/docs">https://usernotification23771.azurewebsites.net/docs</a>
-
+To connect a WebSocket to the backend, use the JS script in the file './subPubSubWebsocketScript.js'. <br />
+To get an access token, use the endpoint '../notification/accesstoken'.
